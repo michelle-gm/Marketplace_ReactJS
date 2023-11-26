@@ -1,0 +1,59 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 97%;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.admin-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 8px;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+.search-button,
+.categories-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 8px;
+}
