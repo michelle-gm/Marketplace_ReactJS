@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import './App.css';
-import ArticleList from './components/ArticleList';
-import Pagination from './components/Pagination';
-import Header from './components/Header'
-import { ArticlesProvider, useArticles } from './contexts/ArticlesContext';
+import React, { useState } from "react";
+import "./App.css";
+import ArticleList from "./components/ArticleList";
+import Pagination from "./components/Pagination";
+import Header from "./components/Header";
+import { ArticlesProvider, useArticles } from "./contexts/ArticlesContext";
 
 function App() {
   const { articles } = useArticles();
@@ -20,9 +20,19 @@ function App() {
     <div className="App">
       <Header />
       <div className="content-container">
+        <div className="message">
+          <p>Los artículos más recientes son:</p>
+        </div>
         <ArticlesProvider>
-          <ArticleList articlesPerPage={articlesPerPage} currentPage={currentPage} />
-          <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+          <ArticleList
+            articlesPerPage={articlesPerPage}
+            currentPage={currentPage}
+          />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
         </ArticlesProvider>
       </div>
     </div>
