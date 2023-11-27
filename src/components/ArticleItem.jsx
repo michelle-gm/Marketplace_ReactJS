@@ -13,7 +13,7 @@ const ArticleItem = ({ article }) => {
       )
     );
   };
-  const userImageStatic = '/public/user.png';
+  const userImageStatic = '/user.png';
 
   return (
     <div className="article-item">
@@ -22,14 +22,14 @@ const ArticleItem = ({ article }) => {
         <h3 className="article-title">{article.name}</h3>
         <p className="article-description">Lorem ipsum dolor sit...</p> {/* Aquí va la descripción  */}
        <div className="article-store">
-       <p className="store-name">{article.storeName}Store</p>
+       <p className="store-name">{article.store}</p>
        <p className="article-price">${article.price}</p>
        </div>
         <p className="article-category">{article.category}</p> {/* categoria */}
 
         <div className="seller-info">
           <img src={userImageStatic} alt="Usuario" className="user-image" /> {/* Imagen del usuario */}
-          <p className="user-name">{article.userName}User</p> {/* Nombre del usuario */}
+          <p className="user-name">{article.user}</p> {/* Nombre del usuario */}
         </div>
         <div className="article-rating">
           {'★'.repeat(article.rating)}
