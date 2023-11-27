@@ -1,25 +1,42 @@
 import React from 'react';
 import { useArticles } from '../contexts/ArticlesContext';
 
+
 const ArticleItem = ({ article }) => {
-  const { isAdminMode } = useArticles();
+  const { isAdminMode, setArticles } = useArticles();
 
   const handleToggleVisibility = () => {
-    // Aquí debes implementar la lógica para cambiar la visibilidad del artículo
-    // Puedes utilizar setArticles del contexto para actualizar el estado de los artículos
+    // Aquí implementas la lógica para cambiar la visibilidad del artículo
+    setArticles(prevArticles =>
+      prevArticles.map(a =>
+        a.id === article.id ? { ...a, isVisible: !a.isVisible } : a
+      )
+    );
   };
+  const userImageStatic = '/public/user.png';
 
   return (
     <div className="article-item">
-      <img src={article.image} alt={article.name} />
-      <div>
-        <h3>{article.name}</h3>
-        <p>Precio: {article.price}</p>
-        <p>Tienda: {article.store}</p>
-        <p>Usuario: {article.user}</p>
-        <p>Puntuación: {article.rating}</p>
+      <img src={article.image} alt={article.name} className="article-image" />
+      <div className="article-content">
+        <h3 className="article-title">{article.name}</h3>
+        <p className="article-description">Lorem ipsum dolor sit...</p> {/* Aquí va la descripción  */}
+       <div className="article-store">
+       <p className="store-name">{article.storeName}Store</p>
+       <p className="article-price">${article.price}</p>
+       </div>
+        <p className="article-category">{article.category}</p> {/* categoria */}
+
+        <div className="seller-info">
+          <img src={userImageStatic} alt="Usuario" className="user-image" /> {/* Imagen del usuario */}
+          <p className="user-name">{article.userName}User</p> {/* Nombre del usuario */}
+        </div>
+        <div className="article-rating">
+          {'★'.repeat(article.rating)}
+          {'☆'.repeat(5 - article.rating)}
+        </div>
         {isAdminMode && (
-          <button onClick={handleToggleVisibility}>
+          <button className="visibility-button" onClick={handleToggleVisibility}>
             {article.isVisible ? 'Ocultar' : 'Mostrar'}
           </button>
         )}
