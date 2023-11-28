@@ -78,3 +78,20 @@
     margin-bottom: 5px; /* Ajusta el margen inferior según sea necesario */
   }
 }
+
+.add-button{
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.Hide-button{
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}

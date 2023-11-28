@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useArticles } from "../contexts/ArticlesContext";
 import "./Header.css";
 
-const Header = () => {
+// Se agregan props para las funciones de agregar y ocultar
+const Header = ({ onAddArticle, onToggleVisibility }) => {
   const [isAdminMode, setIsAdminMode] = useState(false);
   const { articles, setArticles } = useArticles();
 
@@ -17,6 +18,8 @@ const Header = () => {
   
     // Cambiar el estado de isAdminMode
     setIsAdminMode(!isAdminMode);
+    // Si desactivamos el modo de administrador, también queremos asegurarnos de ocultar el formulario
+    if (isAdminMode) onToggleVisibility(false);
   };
 
   const handleDeactivateArticles = () => {
@@ -40,11 +43,19 @@ const Header = () => {
             {isAdminMode ? "Modo Visitante" : "Modo Administrador"}
           </button>
         </li>
+        {/* Botón Agregar visible solo en modo administrador */}
         {isAdminMode && (
           <li>
-            <button className="deactivate-button" onClick={handleDeactivateArticles}>
-              Desactivar Artículos
-            </button>
+            {/* Al hacer clic, invocar la función onAddArticle pasada como prop */}
+            <button className="add-button" onClick={() => onAddArticle(true)}>Agregar</button>
+          </li>
+        )}
+
+        {/* Botón Ocultar, para cancelar la operación de agregar y volver a la lista de artículos */}
+        {isAdminMode && (
+          <li>
+            {/* Al hacer clic, invocar la función onToggleVisibility pasada como prop */}
+            <button className="Hide-button">Ocultar</button>
           </li>
         )}
       </ul>
