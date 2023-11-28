@@ -3,7 +3,6 @@ import { useArticles } from "../contexts/ArticlesContext";
 
 const ArticleItem = ({ article }) => {
   const userImageStatic = "/user.png";
-  const { modoAdmin } = useArticles();
   const [isSelected, setIsSelected] = useState(false);
 
   const handleToggleSelection = () => {

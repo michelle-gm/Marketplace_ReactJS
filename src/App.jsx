@@ -4,6 +4,7 @@ import ArticleList from "./components/ArticleList";
 import Pagination from "./components/Pagination";
 import Header from "./components/Header";
 import AddArticleForm from "./components/AddArticleForm";
+import HideItem from "./components/HideItem";
 import { ArticlesProvider, useArticles } from "./contexts/ArticlesContext";
 
 function App() {
@@ -28,11 +29,18 @@ function App() {
 
   return (
     <div className="App">
-      <Header onAddArticle={handleAddArticle} onToggleVisibility={handleToggleVisibility} />
+      <Header
+        onAddArticle={handleAddArticle}
+        onToggleVisibility={handleToggleVisibility}
+      />
       <div className="content-container">
         <div className="message">
           {/* Mensaje condicional según el estado de showAddForm */}
-          <p>{showAddForm ? "Datos del nuevo artículo:" : "Los artículos más recientes son:"}</p>
+          <p>
+            {showAddForm
+              ? "Datos del nuevo artículo:"
+              : "Los artículos más recientes son:"}
+          </p>
         </div>
         <ArticlesProvider>
           {showAddForm ? (
