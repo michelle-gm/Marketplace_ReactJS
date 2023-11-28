@@ -17,7 +17,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 2,
@@ -27,7 +29,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 3,
@@ -37,7 +41,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 4,
@@ -47,7 +53,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 5,
@@ -57,7 +65,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 6,
@@ -67,7 +77,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 7,
@@ -77,7 +89,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 8,
@@ -87,7 +101,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 9,
@@ -97,7 +113,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 10,
@@ -107,7 +125,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 11,
@@ -117,7 +137,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 12,
@@ -127,7 +149,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 13,
@@ -137,7 +161,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 14,
@@ -147,7 +173,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 15,
@@ -157,7 +185,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 16,
@@ -167,7 +197,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 17,
@@ -177,7 +209,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 18,
@@ -187,7 +221,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 19,
@@ -197,7 +233,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     },
     {
       id: 20,
@@ -207,7 +245,9 @@ export const ArticlesProvider = ({ children }) => {
       store: 'Funko',
       user: 'FunkoOfficial',
       rating: 4.5,
-      isVisible: 'Mostrar'
+      isVisible: true,
+      isSelected: false,
+      modoAdmin: false
     }
   ]);
 

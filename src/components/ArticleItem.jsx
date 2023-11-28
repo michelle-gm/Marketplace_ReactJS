@@ -1,46 +1,45 @@
-import React from 'react';
-import { useArticles } from '../contexts/ArticlesContext';
-
+import React, { useState } from "react";
+import { useArticles } from "../contexts/ArticlesContext";
 
 const ArticleItem = ({ article }) => {
-  const { isAdminMode, setArticles } = useArticles();
+  const userImageStatic = "/user.png";
+  const { modoAdmin } = useArticles();
+  const [isSelected, setIsSelected] = useState(false);
 
-  const handleToggleVisibility = () => {
-    // Aquí implementas la lógica para cambiar la visibilidad del artículo
-    setArticles(prevArticles =>
-      prevArticles.map(a =>
-        a.id === article.id ? { ...a, isVisible: !a.isVisible } : a
-      )
-    );
+  const handleToggleSelection = () => {
+    setIsSelected(!isSelected);
   };
-  const userImageStatic = '/user.png';
 
   return (
-    <div className="article-item">
+    <div className={`article-item selectable`}>
       <img src={article.image} alt={article.name} className="article-image" />
       <div className="article-content">
         <h3 className="article-title">{article.name}</h3>
-        <p className="article-description">Lorem ipsum dolor sit...</p> {/* Aquí va la descripción  */}
-       <div className="article-store">
-       <p className="store-name">{article.store}</p>
-       <p className="article-price">${article.price}</p>
-       </div>
-        <p className="article-category">{article.category}</p> {/* categoria */}
+        <p className="article-description">Lorem ipsum dolor sit...</p>
+        <div className="article-store">
+          <p className="store-name">{article.store}</p>
+          <p className="article-price">${article.price}</p>
+        </div>
+        <p className="article-category">{article.category}</p>
 
         <div className="seller-info">
-          <img src={userImageStatic} alt="Usuario" className="user-image" /> {/* Imagen del usuario */}
-          <p className="user-name">{article.user}</p> {/* Nombre del usuario */}
+          <img src={userImageStatic} alt="Usuario" className="user-image" />
+          <p className="user-name">{article.user}</p>
         </div>
         <div className="article-rating">
-          {'★'.repeat(article.rating)}
-          {'☆'.repeat(5 - article.rating)}
+          {"★".repeat(article.rating)}
+          {"☆".repeat(5 - article.rating)}
         </div>
-        {isAdminMode && (
-          <button className="visibility-button" onClick={handleToggleVisibility}>
-            {article.isVisible ? 'Ocultar' : 'Mostrar'}
-          </button>
-        )}
       </div>
+      {article.modoAdmin && (
+        <button
+          className={`select-button ${isSelected ? "selected" : ""}`}
+          onClick={handleToggleSelection}
+          style={{ backgroundColor: isSelected ? "#3498db" : "" }}
+        >
+          {isSelected ? "Seleccionado" : "Seleccionar"}
+        </button>
+      )}
     </div>
   );
 };
