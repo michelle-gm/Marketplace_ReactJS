@@ -2,30 +2,32 @@ import React, { useState } from "react";
 import { useArticles } from "../contexts/ArticlesContext";
 import "./Header.css";
 
-// Se agregan props para las funciones de agregar y ocultar
-const Header = ({ onAddArticle,  onToggleVisibility }) => {
+const Header = ({ onAddArticle, onToggleVisibility }) => {
   const [isAdminMode, setIsAdminMode] = useState(false);
-  const { articles, setArticles } = useArticles();
+  const { setArticles } = useArticles();
 
   const toggleAdminMode = () => {
-    // Cambiar el estado de isAdminMode
-    setIsAdminMode(!isAdminMode);
-    // Si desactivamos el modo de administrador, también queremos asegurarnos de ocultar el formulario
-    if (isAdminMode) onToggleVisibility(false);
-  };
-
-  const handleDeactivateArticles = () => {
-    // Cambiar la propiedad 'modoAdmin' en todos los artículos
     setArticles((prevArticles) =>
       prevArticles.map((article) => ({
         ...article,
-        modoAdmin: !isAdminMode, // Cambia de true a false y viceversa
+        modoAdmin: !isAdminMode,
       }))
     );
+  
+    setIsAdminMode(!isAdminMode);
+    if (isAdminMode) onToggleVisibility(false);
   };
 
   return (
     <nav className="navbar">
+      {/* Ícono de usuario solo visible en modo administrador */}
+      {isAdminMode && (
+      <div className="user-icon-container">
+        <img src="/user.png" alt="Admin User" className="user-icon" />
+        <span className="seller-text">Vendedor</span>
+        </div>
+        )}
+      
       <div className="logo">
         <img src="/online-shopping.png" alt="Logo" />
       </div>
@@ -41,12 +43,14 @@ const Header = ({ onAddArticle,  onToggleVisibility }) => {
             {isAdminMode ? "Modo Visitante" : "Modo Administrador"}
           </button>
         </li>
-        {/* Botón Agregar visible solo en modo administrador */}
+        
         {isAdminMode && (
-          <li>
-            {/* Al hacer clic, invocar la función onAddArticle pasada como prop */}
-            <button className="add-button" onClick={() => onAddArticle(true)}>Agregar</button>
-          </li>
+          <>
+            <li>
+              <button className="add-button" onClick={() => onAddArticle(true)}>Agregar</button>
+            </li>
+           
+          </>
         )}
       </ul>
     </nav>
@@ -54,3 +58,4 @@ const Header = ({ onAddArticle,  onToggleVisibility }) => {
 };
 
 export default Header;
+
