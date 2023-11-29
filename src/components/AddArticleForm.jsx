@@ -3,32 +3,69 @@ import { useArticles } from '../contexts/ArticlesContext';
 import './AddArticleForm.css';
 
 const AddArticleForm = () => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState('');
+
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [store, setStore] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
 
-  const { setArticles } = useArticles();
+  const { articles, setArticles } = useArticles();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newArticle = { name, price, store, description, image };
-    setArticles((prevArticles) => [...prevArticles, newArticle]);
+    if (isEditing) {
+      // Lógica para actualizar el artículo seleccionado...
+    } else {
+      setArticles((prevArticles) => [...prevArticles, newArticle]);
+    }
+    // Restablecer los estados...
     setName('');
     setPrice('');
     setStore('');
     setDescription('');
     setImage('');
+    setIsEditing(false);
   };
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
   };
 
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleAddClick = () => {
+    setIsEditing(false);
+  };
+
   return (
-    <div className="form-container"> {/* Contenedor agregado */}
+    <div className="form-container">
+     <div className="button-container">
+    <button className='botoncito' onClick={handleAddClick}>Agregar Artículo</button>
+    <button className='botoncito2' onClick={handleEditClick}>Editar Artículo</button>
+      </div>
+
       <form onSubmit={handleSubmit}>
+        {isEditing && (
+          <>
+            <label htmlFor="selectedArticle">Elegir Artículo:</label>
+            <select
+              id="selectedArticle"
+              value={selectedArticle}
+              onChange={(e) => setSelectedArticle(e.target.value)}
+            >
+              {articles.map((article, index) => (
+                <option key={index} value={article.name}>{article.name}</option>
+              ))}
+            </select>
+          </>
+        )}
+
         <label htmlFor="name">Nombre del artículo:</label>
         <input
           id="name"
@@ -71,10 +108,11 @@ const AddArticleForm = () => {
           onChange={handleImageChange}
         />
 
-        <button type="submit">Agregar Artículo</button>
+        <button type="submit">{isEditing ? 'Actualizar Artículo' : 'Agregar Artículo'}</button>
       </form>
     </div>
   );
 };
 
 export default AddArticleForm;
+
