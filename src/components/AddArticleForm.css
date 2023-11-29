@@ -52,4 +52,23 @@
     width: 100%; /* El título ocupa el 100% del ancho del formulario */
     margin-bottom: 20px;
   }
-  
+  .button-container {
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones */
+  margin-right: 25px; 
+}
+
+.botoncito, .botoncito2 {
+  padding: 10px 15px;
+  background-color: #3498db; /* Color azul para el botón */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px; 
+}
+
+.botoncito:hover, .botoncito2:hover {
+  background-color: #297cba; /* Un azul un poco más oscuro para el hover */
+}
