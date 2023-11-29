@@ -47,7 +47,7 @@ const Header = ({ onAddArticle, onToggleVisibility }) => {
         {isAdminMode && (
           <>
             <li>
-              <button className="add-button" onClick={() => onAddArticle(true)}>Agregar</button>
+              <button className="add-button" onClick={() => onAddArticle(true)}>Agregar o Editar</button>
             </li>
            
           </>
